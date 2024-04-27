@@ -1,10 +1,11 @@
 import { StyleSheet, Text, View } from "react-native";
 import Constants from "expo-constants";
+import "./styles.css";
 
 function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
+      <Text className="text-3xl text-red-500">Open up App.tsx to start working on your app!</Text>
     </View>
   );
 }
