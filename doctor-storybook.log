@@ -22,5 +22,5 @@
 You can always recheck the health of your project by running:
 npx storybook doctor
 
-Full logs are available in /Users/hyacinthe/Desktop/AwesomeStorybook/doctor-storybook.log
+Full logs are available in /Users/hyacinthe/Desktop/absalon/doctor-storybook.log
 

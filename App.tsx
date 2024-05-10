@@ -1,12 +1,35 @@
-import { StyleSheet, Text, View } from "react-native";
 import Constants from "expo-constants";
-import "./styles.css";
+import "./global.css";
+import { EntryScreen, TabScreen } from "@screens"
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 function App() {
+
+  const Stack = createNativeStackNavigator();
+
+ ///const initialRouteName = 'TabScreen';
+
+  const navigationOptions = {
+    gestureEnabled: false,
+    headerShown: false,
+    animationTypeForReplace: 'fade',
+  };
+  
+  const screenOptions = {
+    gestureEnabled: false,
+    headerShown: false,
+  };
+
   return (
-    <View style={styles.container}>
-      <Text className="text-3xl text-red-500">Open up App.tsx to start working on your app!</Text>
-    </View>
+        <NavigationContainer
+         // initialRouteName={initialRouteName} 
+         screenOptions={screenOptions}>
+          <Stack.Navigator>
+            <Stack.Screen name="EntryScreen" component={EntryScreen} options={navigationOptions} />
+            <Stack.Screen name="TabScreen" component={TabScreen} options={navigationOptions} />
+          </Stack.Navigator>
+        </NavigationContainer>
   );
 }
 
@@ -15,14 +38,5 @@ let AppEntryPoint = App;
 if (Constants.expoConfig?.extra?.storybookEnabled === "true") {
   AppEntryPoint = require("./.ondevice").default;
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
 
 export default AppEntryPoint;

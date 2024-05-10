@@ -1,16 +1,35 @@
 const path = require("path");
 const { getDefaultConfig } = require("expo/metro-config");
+const { build: twBuild } = require("tailwindcss/lib/cli/build");
 const { generate } = require("@storybook/react-native/scripts/generate");
 
-generate({
-  configPath: path.resolve(__dirname, "./.ondevice"),
-});
+module.exports = (async () => {
+  /** @type {import('expo/metro-config').MetroConfig} */
 
-const defaultConfig = getDefaultConfig(__dirname);
+  generate({
+    configPath: path.resolve(__dirname, "./.ondevice"),
+  });
 
-defaultConfig.transformer.unstable_allowRequireContext = true;
+  const config = getDefaultConfig(__dirname, {
+    // Enable CSS support.
+    isCSSEnabled: true,
+  });
 
-defaultConfig.resolver.resolveRequest = (context, moduleName, platform) => {
+  const { transformer, resolver } = config;
+
+  config.transformer = {
+    ...transformer,
+    babelTransformerPath: require.resolve("react-native-svg-transformer")
+  };
+  config.resolver = {
+    ...resolver,
+    assetExts: resolver.assetExts.filter((ext) => ext !== "svg"),
+    sourceExts: [...resolver.sourceExts, "svg"]
+  };
+
+  config.transformer.unstable_allowRequireContext = true;
+
+  config.resolver.resolveRequest = (context, moduleName, platform) => {
   const defaultResolveResult = context.resolveRequest(
     context,
     moduleName,
@@ -29,4 +48,15 @@ defaultConfig.resolver.resolveRequest = (context, moduleName, platform) => {
   return defaultResolveResult;
 };
 
-module.exports = defaultConfig;
+  await twBuild({
+    "--input": path.relative(__dirname, "./global.css"),
+    "--output": path.resolve(
+      __dirname,
+      "node_modules/.cache/expo/tailwind/eval.css"
+    ),
+    "--watch": process.env.NODE_ENV === "development" ? "always" : false,
+    "--poll": true,
+  });
+
+  return config;
+})();

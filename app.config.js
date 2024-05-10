@@ -1,7 +1,7 @@
 export default ({ config }) => ({
   ...config,
-  name: "AwesomeStorybook",
-  slug: "expo-template-blank-typescript",
+  name: "absalon",
+  slug: "absalon",
   version: "1.0.0",
   orientation: "portrait",
   icon: "./assets/icon.png",

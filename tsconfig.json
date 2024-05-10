@@ -1,6 +1,9 @@
 {
-  "extends": "expo/tsconfig.base",
   "compilerOptions": {
-    "strict": true
-  }
+    "strict": true,
+    "baseUrl": ".",
+    "jsx": "react-native",
+  },
+  "include": ["src", "custom.d.ts", "global.d.ts"],
+  "extends": ["expo/tsconfig.base", "./tsconfig.paths.json"],
 }
