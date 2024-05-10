@@ -2,8 +2,8 @@
   "compilerOptions": {
     "strict": true,
     "baseUrl": ".",
-    "jsx": "react-native",
+    "moduleResolution": "node"
   },
-  "include": ["src", "custom.d.ts", "global.d.ts"],
+  "include": ["src", "custom.d.ts", "globals.d.ts", "my-app.d.ts"],
   "extends": ["expo/tsconfig.base", "./tsconfig.paths.json"],
 }

@@ -4,8 +4,7 @@ import Entypo from '@expo/vector-icons/Entypo';
 import * as SplashScreen from 'expo-splash-screen';
 import * as Font from 'expo-font';
 import Logo from "@assets/logo_white.svg"
-import { useNavigation } from '@react-navigation/native';
-import { ImageSVG } from '@components';
+import { useNavigation, NavigationProp } from '@react-navigation/native';
 
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync();
@@ -13,7 +12,7 @@ SplashScreen.preventAutoHideAsync();
 export function EntryScreen() {
   const [appIsReady, setAppIsReady] = useState(false);
 
-  const {navigate} = useNavigation();
+  const {navigate} = useNavigation<NavigationProp<any>>();
 
   useEffect(() => {
     async function prepare() {
@@ -52,7 +51,7 @@ export function EntryScreen() {
 
   return (
     <View className="flex flex-1 bg-main-red items-center justify-center" onLayout={onLayoutRootView}>
-      <ImageSVG source={Logo} className="w-8 h-8" />
+      <Logo className="w-8 h-8" />
     </View>
   );
 }
