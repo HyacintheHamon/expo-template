@@ -13,7 +13,6 @@ function App() {
   const navigationOptions = {
     gestureEnabled: false,
     headerShown: false,
-    animationTypeForReplace: 'fade',
   };
   
   const screenOptions = {

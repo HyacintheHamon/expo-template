@@ -5,7 +5,7 @@
     "entryPoint" : "./src/App.tsx",
     "packagerOpts": {
       "config": "metro.config.js",
-      "s,ourceExts": ["js", "jsx", "ts", "tsx", "svg"]
+      "sourceExts": ["js", "jsx", "ts", "tsx", "svg"]
     }
   }
 }
