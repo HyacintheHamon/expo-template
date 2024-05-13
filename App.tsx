@@ -3,6 +3,7 @@ import "./global.css";
 import { EntryScreen, TabScreen } from "@screens"
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import 'react-native-reanimated'
 
 function App() {
 
