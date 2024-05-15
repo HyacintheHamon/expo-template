@@ -2,7 +2,7 @@
   "expo": {
     "name": "absalon",
     "slug": "absalon",
-    "entryPoint" : "./src/App.tsx",
+    "entryPoint": "./src/App.tsx",
     "packagerOpts": {
       "config": "metro.config.js",
       "sourceExts": ["js", "jsx", "ts", "tsx", "svg"]
