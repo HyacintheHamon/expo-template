@@ -95,7 +95,7 @@ export function NotificationScreen() {
         )}
       >
         <View className="flex flex-row items-center">
-          <View className="w-8 h-8 bg-[#FFEFEF] items-center justify-center rounded-full border border-[#E7E7E7]">
+          <View className="w-8 h-8 bg-main-pink items-center justify-center rounded-full border border-[#E7E7E7]">
             <Star
               className={classNames(
                 !item.read ? "text-main-red" : "text-main-gray",

@@ -1,6 +1,6 @@
 import { View, Text, Image, Pressable } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { NotificationScreen } from "@screens/NotificationScreen";
+import { NotificationScreen, ProfileScreen } from "@screens";
 import { AntDesign } from "@expo/vector-icons";
 import Wine from "@assets/wine.svg";
 import Users from "@assets/users.svg";
@@ -30,14 +30,6 @@ function TastingScreen() {
   return (
     <View className="flex flex-1 items-center justify-center">
       <Text>Tasting</Text>
-    </View>
-  );
-}
-
-function ProfileScreen() {
-  return (
-    <View className="flex flex-1 items-center justify-center">
-      <Text>Profile</Text>
     </View>
   );
 }
