@@ -78,7 +78,7 @@ export function ProfileScreen() {
 
   return (
     <View className="flex flex-1">
-      <View className="bg-green-200 h-40 w-screen">
+      <View className="h-40 w-screen">
         <Image
           className="absolute w-full h-full top-0 bottom-0 left-0 right-0"
           source={require("@assets/header.png")}
